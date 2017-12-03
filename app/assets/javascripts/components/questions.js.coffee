@@ -7,6 +7,11 @@
     questions = @state.questions.slice()
     questions.push question
     @setState questions: questions
+	deleteQuestion: (question) ->
+  	questions = @state.questions.slice()
+  	index = questions.indexOf question
+  	questions.splice index, 1
+  	@replaceState questions: questions    
   render: ->
     React.DOM.div
       className: 'questions'
@@ -20,6 +25,7 @@
           React.DOM.tr null,
             React.DOM.th null, 'Question'
             React.DOM.th null, 'Answer'
+            React.DOM.th null, 'Actions'
         React.DOM.tbody null,
         	for question in @state.questions
-          	React.createElement Question, key: question.id, question: question
+          	React.createElement Question, key: question.id, question: question, handleDeleteQuestion: @deleteQuestion

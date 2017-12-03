@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+	before_action :set_question, only: [:destroy]
 
 	# Created by muh.daniramdani@gmail.com
 	# Get All questions
@@ -23,6 +24,16 @@ class QuestionsController < ApplicationController
     end
 	end
 
+	# Created by muh.daniramdani@gmail.com
+	# Delete a question
+	# method : DELETE
+	# routes : /questions/:id
+	# params : id(int), question(string), answer(string)
+	def destroy
+    @question.destroy
+    head :no_content
+  end
+
 
 	private
 
@@ -32,4 +43,11 @@ class QuestionsController < ApplicationController
 	  def question_params
 	    params.require(:question).permit(:question, :answer)
 	  end
+
+	  # Created by muh.daniramdani@gmail.com
+		# get a question
+		# params : id(int)
+	  def set_question
+			@question = Question.find(params[:id])
+		end
 end
