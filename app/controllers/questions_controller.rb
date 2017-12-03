@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-	before_action :set_question, only: [:destroy]
+	before_action :set_question, only: [:update, :destroy]
 
 	# Created by muh.daniramdani@gmail.com
 	# Get All questions
@@ -32,6 +32,19 @@ class QuestionsController < ApplicationController
 	def destroy
     @question.destroy
     head :no_content
+  end
+
+  # Created by muh.daniramdani@gmail.com
+	# Update a question
+	# method : PUT
+	# routes : /questions/:id
+	# params : id(int), question(string), answer(string)
+  def update
+    if @question.update(question_params)
+      render json: @question
+    else
+      render json: @question.errors, status: :unprocessable_entity
+    end
   end
 
 

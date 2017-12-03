@@ -1,5 +1,5 @@
 @QuestionForm = React.createClass
-	getInitialState: ->
+  getInitialState: ->
     question: ''
     answer: ''
   handleValueChange: (e) ->
@@ -36,7 +36,7 @@
           value: @state.answer
           onChange: @handleValueChange
         React.DOM.button
-        	type: 'submit'
-        	className: 'btn btn-primary'
-        	disabled: !@valid()
-        	'Create Question'
+          type: 'submit'
+          className: 'btn btn-primary'
+          disabled: !@valid()
+          'Create Question'
