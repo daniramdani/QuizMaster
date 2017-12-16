@@ -38,6 +38,13 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+
+  # added by muh.daniramdani@gmail.com
+  # Gems for Test
+  gem 'rspec-rails'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'simplecov'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -56,13 +63,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ---------------------------------
 # ADDED GEMS
 
-# Created by muh.daniramdani@gmail.com
+# added by muh.daniramdani@gmail.com
 # Gem for front-end web framework for designing application
 gem 'bootstrap', '~> 4.0.0alpha3.1'
 
-# Created by muh.daniramdani@gmail.com
+# added by muh.daniramdani@gmail.com
 # Gem for javascript library for building user interface
 gem 'react-rails', '1.8.1'
+
+# added by muh.daniramdani@gmail.com
+# Gem for wysiwyg Editor
+gem "wysiwyg-rails"
 
 # ---------------------------------
 

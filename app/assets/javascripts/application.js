@@ -17,4 +17,6 @@
 //= require react_ujs
 //= require components
 //= require bootstrap-sprockets
+//= require froala_editor.min.js
+//= require questions
 //= require_tree .

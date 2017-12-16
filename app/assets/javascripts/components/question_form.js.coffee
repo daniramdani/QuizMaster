@@ -21,6 +21,7 @@
         className: 'form-group'
         React.DOM.textarea
           type: 'textarea'
+          id: 'hello'
           className: 'form-control'
           placeholder: 'question'
           name: 'question'
