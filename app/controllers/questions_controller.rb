@@ -47,14 +47,46 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # Created by muh.daniramdani@gmail.com
+	# Answer a question
+	# method : POST
+	# routes : /answer
+	# params : question_id(integer), user_name(string), answer(text)
+	def answer
+		if is_answer_correct
+			@answer = UserAnswer.new(answer_params)
+			@answer.save
+      render json: @question
+    else
+      render json: @question, status: :unprocessable_entity
+		end
+	end
+
 
 	private
+
+		# Created by muh.daniramdani@gmail.com
+		# Check is an Answer correct
+		# method : POST
+		# routes : /answer
+		# params : question_id(integer), user_name(string), answer(text)
+		def is_answer_correct
+			@question = Question.find(params[:answer][:question_id])
+			@question.answer == params[:answer][:answer] ? (return true) : (return false)
+		end			
 
 		# Created by muh.daniramdani@gmail.com
 		# question permitted params
 		# params : question(string), answer(string)
 	  def question_params
 	    params.require(:question).permit(:question, :answer)
+	  end
+
+	  # Created by muh.daniramdani@gmail.com
+		# answer permitted params
+		# params : question_id(integer), user_name(string), answer(text)
+	  def answer_params
+	    params.require(:answer).permit(:question_id, :user_name, :answer)
 	  end
 
 	  # Created by muh.daniramdani@gmail.com
