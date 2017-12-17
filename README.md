@@ -39,7 +39,7 @@ Things you may want to cover:
   9. Create Tables :
        rake db:migrate
 
- 10. Start Application :
+  10. Start Application :
        rails server
 
 
